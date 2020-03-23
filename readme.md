@@ -20,3 +20,14 @@
 * How a standard Express project can be changed to meet an MVC approach to architecture.
 * How routes and controllers fit together.
 * The simplest way to publish an Express application live to Heroku using Git.
+
+### Ch4: Building a static site with Node and Express ###
+* Simple ways of defining and organizing routes in Express.
+* How to use Node modules to hold the controllers.
+* The best ways to set up multiple sets of controllers by proper definition of the routes.
+* Prototyping views with Pug and Bootstrap.
+* Making reusable Pug components and mixins.
+* Displaying dynamic data in Pug templates.
+* Passing data from controllers to views.
+
+### Ch5: Building a data model with MongoDB and Mongoose ###
