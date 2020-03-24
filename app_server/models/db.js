@@ -3,11 +3,13 @@ const mongoose = require('mongoose');
 let dbURI = 'mongodb://localhost/Loc8r';
 
 if (process.env.NODE_ENV === 'production') {
-    // dbURI = process.env.MONGODB_URI;
-    dbURI = 'mongodb+srv://user1:Deadlocked96@cluster0-cw3j6.mongodb.net/test?retryWrites=true';
+    dbURI = process.env.MONGODB_URI;
+    // dbURI = 'mongodb+srv://user1:Deadlocked96@cluster0-cw3j6.mongodb.net/test?retryWrites=true';
 }
-// mongoose.connect(dbURI, { useNewUrlParser: true });
-mongoose.connect(dbURI);
+mongoose.connect(dbURI, { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true });
+// mongoose.connect(dbURI);
+
+
 /*******************************************************************************
 /*************************    Listen for Mongoose     **************************
 **************************    connection events and   **************************
