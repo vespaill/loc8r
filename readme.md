@@ -31,3 +31,10 @@
 * Passing data from controllers to views.
 
 ### Ch5: Building a data model with MongoDB and Mongoose ###
+* Some ways of connecting a MongoDB database to an Express application using Mongoose
+* Best practices for managing Mongoose connections
+* How to model data using Mongoose schemas
+* How schemas compile into models
+* Using the MongoDB shell to work directly with the database
+* Pushing your database to a live URI
+* Connecting to different databases from different environments
