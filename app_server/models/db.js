@@ -6,7 +6,6 @@ let dbURI = 'mongodb://localhost/Loc8r';
 /* Gets overwritten if we're in heroku, so that it uses the live database URI
    instead. */
 if (process.env.NODE_ENV === 'production') {
-    // dbURI = 'mongodb://User1:Deadlocked96@ds253428.mlab.com:53428/heroku_sv1fxxrf';
     dbURI = process.env.MONGODB_URI;
 }
 
