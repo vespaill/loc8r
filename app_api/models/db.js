@@ -1,15 +1,14 @@
 const mongoose = require('mongoose');
 
-// local database URI
+// Use local database URI
 let dbURI = 'mongodb://localhost/Loc8r';
 
-/* Gets overwritten if we're in heroku, so that it uses the live database URI
-   instead. */
+// If we're in heroku, use the live database URI instead.
 if (process.env.NODE_ENV === 'production') {
     dbURI = process.env.MONGODB_URI;
 }
 
-// Connect to database.
+// Connect to the database.
 mongoose.connect(dbURI, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
@@ -57,7 +56,7 @@ const gracefulShutdown = (msg, callback) => {
 // Listens for SIGUSR2, which is what nodemon uses.
 process.once('SIGUSR2', () => {
     /* Send a message to gracefulShutdown and a callback to kill the process,
-      emitting SIGUSR2 again. */
+       emitting SIGUSR2 again. */
     gracefulShutdown('nodemon restart', () => {
         process.kill(process.pid, 'SIGUSR2');
     });
@@ -77,8 +76,7 @@ if (process.platform === 'win32') {
 
 // Listen for SIGINT to be emitted upon application termination.
 process.on('SIGINT', () => {
-    /* Sends a message to gracefulShutdown and a callback to exit the Node
-      process. */
+    // Send message and callback to exit the Node process.
     gracefulShutdown('app termination', () => {
         process.exit(0);
     });
@@ -86,8 +84,7 @@ process.on('SIGINT', () => {
 
 // Listens for SIGTERM to be emitted when Heroku shuts down the process.
 process.on('SIGTERM', () => {
-    /* Sends a message to gracefulShutdown and a callback to exit the Node
-       process. */
+    // Send message and callback to exit the Node process.
     gracefulShutdown('Heroku app shutdown', () => {
         process.exit(0);
     });
